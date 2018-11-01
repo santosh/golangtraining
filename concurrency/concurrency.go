@@ -22,4 +22,10 @@ func main() {
     wg.Add(1)
     go say("There")
     wg.Wait()
+
+    wg.Add(1)
+    go say("Hi")
+    // with two wg.Wait(), program will wait for first wait
+    // to finish, then will proceed further
+    wg.Wait()
 }
