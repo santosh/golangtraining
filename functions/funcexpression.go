@@ -4,10 +4,14 @@ import (
     "fmt"
 )
 
-func main() {
-    greeting := func() {
-        fmt.Println("Hello Wrodl!")
+func makeGreeter() func() string {
+    return func() string {
+        return "Hello world!"
     }
+}
 
-    greeting()
+
+func main() {
+    greet := makeGreeter()
+    fmt.Println(greet())
 }
