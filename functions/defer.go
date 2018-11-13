@@ -13,6 +13,6 @@ func world() {
 }
 
 func main() {
-    world()
+    defer world()
     hello()
 }
