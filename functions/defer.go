@@ -15,4 +15,6 @@ func world() {
 func main() {
     defer world()
     hello()
+    fmt.Println("after")
+    defer fmt.Println("final")
 }
