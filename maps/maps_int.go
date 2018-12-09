@@ -25,4 +25,10 @@ func main() {
     }
 
     fmt.Println(greeting)
+
+    multi_line_string := `How
+are 
+you?`
+
+    fmt.Printf("%s\n", multi_line_string)
 }
