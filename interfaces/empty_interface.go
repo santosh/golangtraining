@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+type vehicles interface {
+}
+
 type vehicle struct {
 	Seats    int
 	MaxSpeed int
@@ -32,27 +35,15 @@ func main() {
 	prius := car{}
 	tacoma := car{}
 	bmw528 := car{}
-	cars := []car{prius, tacoma, bmw528}
-
 	boing747 := plane{}
 	boing757 := plane{}
 	boing767 := plane{}
-	planes := []plane{boing747, boing757, boing767}
-
 	sanger := boat{}
 	nautique := boat{}
 	malibu := boat{}
-	boats := []boat{sanger, nautique, malibu}
+	rides := []vehicles{prius, tacoma, bmw528, boing747, boing757, boing767, sanger, nautique, malibu}
 
-	for key, value := range cars {
-		fmt.Println(key, " - ", value)
-	}
-
-	for key, value := range planes {
-		fmt.Println(key, " - ", value)
-	}
-
-	for key, value := range boats {
+	for key, value := range rides {
 		fmt.Println(key, " - ", value)
 	}
 }
