@@ -10,6 +10,9 @@ import (
 // concurrency is threading, parallelism is multiprocessing
 // concurrency can share data, parallelism can't
 
+// concurrency is context switching, parallelism runs in parallel
+// a process can have multiple threads
+
 var wg sync.WaitGroup
 
 func init() {
@@ -17,7 +20,7 @@ func init() {
 }
 
 func foo() {
-	for i := 0; i < 50; i++ {
+	for i := 0; i < 10; i++ {
 		fmt.Println("Foo:", i)
 		time.Sleep(time.Duration(3 * time.Millisecond))
 	}
@@ -25,7 +28,7 @@ func foo() {
 }
 
 func bar() {
-	for i := 0; i < 50; i++ {
+	for i := 0; i < 10; i++ {
 		fmt.Println("Bar:", i)
 		time.Sleep(time.Duration(3 * time.Millisecond))
 	}

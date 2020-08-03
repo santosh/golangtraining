@@ -8,14 +8,18 @@ import (
 	"time"
 )
 
+// atomicity works similar to mutexes...
+// variables which are defined as to be atomic are only accessed
+// by one goroutine at a single point of time.
+
 var wg sync.WaitGroup
 var counter int64
 
 func incrementor(s string) {
 	for i := 0; i < 20; i++ {
-		atomic.AddInt64(&counter, 1)
 		time.Sleep(time.Duration(rand.Intn(3)) * time.Millisecond)
-		fmt.Println(s, i, "Counter: ", counter)
+		atomic.AddInt64(&counter, 1)
+		fmt.Println(s, i, "Counter: ", atomic.LoadInt64(&counter))
 	}
 	wg.Done()
 }
